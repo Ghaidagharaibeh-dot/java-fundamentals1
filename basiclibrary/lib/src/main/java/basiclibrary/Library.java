@@ -10,12 +10,7 @@ import java.util.Collections;
 public class Library {
     public static void main(String[] args) {
 
-//        int[] arr={1,2,3,4,5,5};
-//        int rollNumber=8;
-//        int[] arrays={1,2,3,4};
-//        System.out.println(Arrays.toString(roll(rollNumber)));
-//        System.out.println((containsDuplicates(arr)));
-//        System.out.println((calculateAvg(arrays)));
+
 
     }
 
@@ -58,6 +53,7 @@ public class Library {
         }
         return matrixArr[avgTemp.indexOf(Collections.min(avgTemp))];
     }
+
 
 
 }

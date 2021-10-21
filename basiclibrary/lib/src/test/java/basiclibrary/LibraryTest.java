@@ -8,12 +8,35 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryTest {
-    Library testObject = new Library();
+    Library testing= new Library();
 
-    @Test public void testMethodS()
-    assertEquals(3,testing.roll(3).length);
-    assertTrue(testing.containsDuplicates(new int[]{2,2,3,4}));
-    assertEquals(3,testing.calculateAvg(new int[]{2,4}));
-    assertArrayEquals(new int[]{2,4},testing.lowestaverage(new int[][]{{4,4}, {2, 4}}));
+    @Test public  void testRollNum(){
+        int [] array=testing.roll(7);
+        assertEquals(7,array.length);
 
-}
+    }
+    @Test public void  testContainsDuplicates(){
+        int[] arr1={4,3,6,7};
+        int[] arr2={7,6,9,3,1,1,4,10};
+assertTrue(testing.containsDuplicates(arr1));
+        assertTrue(testing.containsDuplicates(arr2));    }
+    @Test public void testCalculateAvg(){
+        int [] arr1={4,4,4,4};
+        assertEquals(4,testing.calculateAvg(arr1));
+    }
+    @Test public void  testlowestaverage() {
+        int[][] arr = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        int[] exppectedValue={55, 54, 60, 53, 59, 57, 61};
+        assertArrayEquals(exppectedValue,testing.lowestaverage(arr));
+    }
+
+    }
+
+
+
+
