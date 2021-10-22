@@ -3,9 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 public class Library {
     public static void main(String[] args) {
@@ -52,6 +50,55 @@ public class Library {
             avgTemp.add(sum/matrixArr[i].length);
         }
         return matrixArr[avgTemp.indexOf(Collections.min(avgTemp))];
+    }
+
+
+
+    public String weatherData (int [][]arrayMatrix ){
+        int maxNum =arrayMatrix[0][0];
+        int minNum =arrayMatrix[0][0];
+        for (int i=0;i<arrayMatrix.length;i++){
+            for (int j=0;j<arrayMatrix.length;j++){
+                if(maxNum<= arrayMatrix[i][j]){
+                    maxNum=arrayMatrix[i][j];
+                }
+                else if(maxNum >= arrayMatrix[i][j] ){
+                    minNum =arrayMatrix[i][j];
+                }
+            }
+        }
+        Set<Integer> temp=new HashSet<>();
+        String returnTem= "Max Value =" + maxNum + "Min Value =" + minNum;
+        for (int i=0;i<arrayMatrix.length;i++){
+            for (int j=0;j<arrayMatrix.length;j++) {
+                temp.add(arrayMatrix[i][j]);
+            }
+        }
+        for (int i = minNum; i < maxNum; i++) {
+            if (!temp.contains(i)){
+                System.out.println ("Never saw temperature: " + i);
+            }
+
+        }
+
+        return returnTem;
+
+    }
+
+    public String tally(List<String> list){
+        HashSet<String> votedName=new HashSet<String>(list);
+        int votes=0;
+        String hightVotes=null;
+        for (String item:votedName){
+            int counter = Collections.frequency(list, item);
+            if (votes < counter) {
+                votes = counter;
+                hightVotes = item;
+
+            }
+        }
+return hightVotes;
+
     }
 
 
