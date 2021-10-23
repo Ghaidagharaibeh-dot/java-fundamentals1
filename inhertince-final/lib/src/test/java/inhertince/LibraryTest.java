@@ -29,4 +29,54 @@ class LibraryTest {
         assertEquals(2,restaurant1.getStarts());
 
     }
+    @Test void shoptest(){
+        Review shop =new Review("Good","Ghaida",3);
+        assertEquals("Review{body='Good', author='Ghaida', numOfStarts=3}",shop.toString());
+    }
+
+    @Test void addingTest(){
+        Shop shop =new Shop("Simply Cozmo Supermarket","grocery store",100);
+
+        Review testing1=new Review("Good","rahmeh",7);
+        shop.shopReview(testing1);
+        assertEquals("[Review{body='Good', author='rahmeh', numOfStarts=2}]",shop.getReviewShop());
+
+
+    }
+
+    @Test
+    void testingTheater() {
+        Theater testing = new Theater("MO");
+
+        assertEquals("Theater{name='MO', moviesName=[]}", testing.toString());
+    }
+
+    @Test
+    void addtheaterReviewTest() {
+        Review testing = new Review ("perfect","Ghaida", 2);
+
+        assertEquals("Review{body='perfect', author='Ghaida', numOfStarts=2}", testing.toString());
+    }
+    @Test void addmovie(){
+        Theater testing = new Theater("City");
+        testing.addMovies("Lost");
+        testing.addMovies("Happy Land");
+        String expected="Theater{name='City', moviesName=[Lost, Happy Land]}";
+        assertEquals(expected,testing.toString());
+    }
+    @Test void removeMovie(){
+        Theater testing= new Theater("city");
+        testing.addMovies("Lost");
+        testing.addMovies("Happy Land");
+        testing.removeMovies("Lost");
+        String expected="Theater{name='city', moviesName=[Happy Land]}";
+        assertEquals(expected,testing.toString());
+
+    }
+    @Test void addReview(){
+        Theater testing =new Theater("City");
+        Review review=new Review("veryGood","ghaida",3);
+        testing.reviewTheater(review,"Lost");
+        assertEquals("{Review{body='veryGood', author='ghaida', numOfStarts=3}=Lost}",testing.getReviewsForTheater().toString());
+    }
 }
